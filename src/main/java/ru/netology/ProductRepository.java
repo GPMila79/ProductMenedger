@@ -29,8 +29,6 @@ public class ProductRepository {
         products = tmp;
     }
 
-    public Product[] getItems() {
-        return products;
-    }
-}
+      }
+
 

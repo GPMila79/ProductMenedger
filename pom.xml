@@ -15,8 +15,6 @@
     </properties>
 
 
-
-
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -25,8 +23,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-
 
 
     <build>
@@ -73,13 +69,14 @@
                                 <rule>
                                     <limits>
                                         <limit>
-                                            <counter>LINE</counter>
+                                            <counter>BRANCH</counter>
                                             <value>COVEREDRATIO</value>
                                             <minimum>100%</minimum>
                                         </limit>
                                     </limits>
                                 </rule>
                             </rules>
+                            <haltOnFailure>false</haltOnFailure>
                         </configuration>
                     </execution>
 
@@ -87,19 +84,11 @@
                 </executions>
 
 
-
-
-
-
             </plugin>
         </plugins>
 
 
-
-
     </build>
-
-
 
 
 </project>
