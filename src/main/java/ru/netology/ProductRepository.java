@@ -1,4 +1,5 @@
 package ru.netology;
+
 import ru.netology.Product;
 
 public class ProductRepository {
@@ -17,11 +18,16 @@ public class ProductRepository {
         products = tmp;
     }
 
-    public void removeById(int removedId) {
+    public void removeById(int removeId) {
+        Product foundProduct = findById(removeId);
+        if (foundProduct == null) {
+            throw new NotFoundException(removeId);
+        }
+
         Product[] tmp = new Product[products.length - 1];
         int index = 0;
         for (Product product : products) {
-            if (product.getId() != removedId) {
+            if (product.getId() != removeId) {
                 tmp[index] = product;
                 index++;
             }
@@ -29,6 +35,15 @@ public class ProductRepository {
         products = tmp;
     }
 
-      }
+    private Product findById(int id) {
+        for (Product product : products) {
+            if (product.getId() == id) {
+                return product;
+            }
+        }
+        return null;
+    }
+
+}
 
 
